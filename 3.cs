@@ -1,46 +1,50 @@
 ﻿using System;
 
-namespace ConsoleApp14
+namespace sob
 {
     class Program
     {
-        static void Main(string[]args)
+        static void Main()
         {
-            float x, y, dx, dy, step;
-            float x1 = float.Parse(Console.ReadLine());
-            float y1 = float.Parse(Console.ReadLine());
-            float x2 = float.Parse(Console.ReadLine());
-            float y2 = float.Parse(Console.ReadLine());
-            dx = x2 - x1;
-            dy = y2 - y1;
-            int i = int.Parse(Console.ReadLine());
+            Random num = new Random();
+            int[] number = new int[10];
 
-            if (dx >= dy)
+            for(int a = 0; a < number.Length; a++)
             {
-                step = (dx);
+                number[a] = num.Next(1, 101);
             }
-            else
+
+            Console.WriteLine("Number: ");
+            foreach(var numbers in number)
             {
-                step = (dy);
-                dx /= step;
-                dy /= step;
-                x = x1;
-                y = y1;
-                i = 1;
-                
+                Console.Write(number + " ");
             }
-            if (i <= step)
-            {
-                Console.Write("{0}{1}",x,y);
-                x += dx;
-                y += dy;
-                i++;
-            }
-            else
-            {
-                Console.ReadLine();
-            }
+            Console.WriteLine();
+
+
+            GetMaxAndMin(number);
+
+            Console.ReadLine();
         }
-        
+
+        static void GetMaxAndMin(int[] op)
+        {
+            int max = op[0];
+            int min = op[0];
+
+            foreach (var number in op)
+            {
+                if(number > max)
+                {
+                    Console.WriteLine(max);
+                }
+                if (number > min)
+                {
+                    Console.WriteLine(min);
+                }
+            }
+            Console.ReadLine();
+        }
     }
+    
 }
